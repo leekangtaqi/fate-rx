@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title></title>
+  </head>
+  <body>
+    <div>loading...</div>
+    <app></app>
+    <!--<alert></alert>
+    <modal></modal>-->
+
+
+    <!-- build:css(dist/client) app/style.css -->
+    <!-- endbuild -->
+
+
+    <script>
+    var body = document.getElementsByTagName('body')[0];var script = document.createElement('script');script.src = location.protocol + '//' + location.hostname + ':8080' + '/client/app/bundle.js';body.appendChild(script);
+    </script>
+    
+    <!-- build:js(dist/client) app/bundle.js -->
+    <script>var body = document.getElementsByTagName('body')[0];var script = document.createElement('script');script.src = window.location.origin + ':8080' + '/client/app/bundle.js';body.appendChild(script);</script>
+    <!-- endbuild -->
+  </body>
+</html>
