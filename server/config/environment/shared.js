@@ -3,7 +3,8 @@
 var apiUriDev = {};
 apiUriDev['wx.dev2.91pintuan.com'] = 'https://apidev.91pintuan.com';
 apiUriDev['99.dev2.91pintuan.com'] = 'https://api99dev.91pintuan.com';
-apiUriDev[''] = 'http://localhost';
+apiUriDev['http://101.201.208.166/'] = 'http://101.201.208.166';
+apiUriDev[''] = 'http://101.201.208.166';
 var apiUriPro = {};
 apiUriPro['wx.91pintuan.com'] = 'https://api.91pintuan.com';
 apiUriPro['91pintuan.com']    = 'https://api.91pintuan.com';
