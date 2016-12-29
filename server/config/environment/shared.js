@@ -1,5 +1,6 @@
 'use strict';
 
+let api = {}
 api['wx.dev2.91pintuan.com'] = 'https://apidev.91pintuan.com';
 api['99.dev2.91pintuan.com'] = 'https://api99dev.91pintuan.com';
 api['http://101.201.208.166/'] = 'http://101.201.208.166';
