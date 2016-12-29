@@ -6,7 +6,13 @@ const bootstrap = async (app, {origin}) => {
     let config = originConfig[env];
     let dispatch = store.dispatch;
     
-    Object.assign($, $.ajax.base(`${config.apiUri[origin]}:9182`));
+    console.warn(`[origin] = ${origin}`);
+    console.warn(`[system] = domain list`);
+    console.warn(config.apiUri);
+    console.warn(`[system] = domain `);
+    let domain = config.apiUri[origin]
+    console.warn(domain);
+    Object.assign($, $.ajax.base(`${domain}:9182`));
     
     $.setErrorInterceptor((e, chain) => {
         let response = e.response;
