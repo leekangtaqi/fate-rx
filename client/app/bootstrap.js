@@ -12,7 +12,7 @@ const bootstrap = async (app, {origin}) => {
     console.warn(`[system] = domain `);
     let domain = config.apiUri[origin]
     console.warn(domain);
-    Object.assign($, $.ajax.base(`${domain}:9182`));
+    Object.assign($, $.ajax.base(`${domain}`));
     
     $.setErrorInterceptor((e, chain) => {
         let response = e.response;
