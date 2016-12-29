@@ -6,7 +6,7 @@ import Cookies from '../framework/cookie';
 import bootstrap from './bootstrap';
 import config from './app.config';
 import User from './user/user';
-import Fate from './fate/Fate';
+import Fate from './fate/fate';
 import Rx from 'rxjs/Rx';
 import { Ninjia, router, connect, provider } from '../framework/ninjiajs/src/index';
 import reducer from './registerReducers';

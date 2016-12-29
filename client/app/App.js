@@ -1,7 +1,7 @@
 import * as riot from 'riot';
 import Scene from './scene/Scene';
 import Footer from './footer/Footer';
-import MyForm from './form/Form';
+import MyForm from './form/form';
 import Rx from 'rxjs/Rx';
 
 export default class App extends riot.Tag {
