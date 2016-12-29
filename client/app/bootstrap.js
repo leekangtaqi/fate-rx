@@ -6,7 +6,7 @@ const bootstrap = async (app, {origin}) => {
     let config = originConfig[env];
     let dispatch = store.dispatch;
     
-    Object.assign($, $.ajax.base(`${config.apiUri[origin]}/api`));
+    Object.assign($, $.ajax.base(`${config.apiUri[origin]}:9182`));
     
     $.setErrorInterceptor((e, chain) => {
         let response = e.response;
@@ -21,7 +21,7 @@ const bootstrap = async (app, {origin}) => {
     })
 
     $.addResponseInterceptor(response => {
-        console.warn(response.statusText);
+        return response;
     })
 
 }

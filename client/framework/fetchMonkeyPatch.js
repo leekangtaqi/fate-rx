@@ -106,6 +106,7 @@ const invocationCreator = function(path, props){
             invocation.props && (Object.assign(repeatorOpts, invocation.props));
             let chain = api[method].call(null, uri, json, repeatorOpts || {})
             chain.catch(e=> {
+                console.warn(e);
                 errorInterceptor && errorInterceptor(e, chain)
             })
             return chain;

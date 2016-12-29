@@ -5,7 +5,9 @@ import {} from '../framework/jQueryLean';
 import Cookies from '../framework/cookie';
 import bootstrap from './bootstrap';
 import config from './app.config';
-
+import User from './user/user';
+import Fate from './fate/Fate';
+import Rx from 'rxjs/Rx';
 import { Ninjia, router, connect, provider } from '../framework/ninjiajs/src/index';
 import reducer from './registerReducers';
 import middlewares from './middlewares';
@@ -14,6 +16,14 @@ import App from './App';
 
 if(process.env.NODE_ENV === 'development'){
     require('./main.scss');
+}
+
+let fate = new Fate();
+let user = new User(fate);
+
+window.scene = {
+    user,
+    hero: fate
 }
 
 window.riot = riot;
@@ -36,7 +46,6 @@ router.hub.routes = routes;
 router.hub.view.setHandler(function handler(direction, tag){
     let actionType =  direction === 'enter' ? '$enter' : '$leave';
     app.store.dispatch({type: actionType, payload: tag})
-    // app.store.dispatch({type: actionType, payload: tag.opts && tag.opts.riotTag || tag.root.localName})
 })
 
 app.router(router);
@@ -51,6 +60,7 @@ app.start(async () => {
     window.app = app;
 
     let origin = location.host.replace(location.host.split('.')[0], '').slice(1);
+
     await bootstrap(app, {origin});
 
     /**
@@ -102,8 +112,8 @@ app.start(async () => {
     /**
      * set entry for the application.
      */
-    let entry = new App(document.body, {message: '111', store: app.store}).mount();
-
+    let entry = new App(document.body, {message: '111', store: app.store});
+    
     app.hub.root = entry;
 
     app.set('entry', entry);

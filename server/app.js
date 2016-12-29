@@ -11,10 +11,28 @@ import express from 'express';
 import config from './config/environment';
 import compression from 'compression';
 import { createServer } from 'http';
+import mongoose from 'mongoose';
+import userRouter from './controllers/user.controller'
+var serveStatic = require('serve-static')
+var bodyParser = require('body-parser');
+
+
+mongoose.connect(config.mongo.uris, config.mongo.options);
+let conn = mongoose.connection;
+conn.on('connected',function(){console.info('[MonoDB]:开盘');});
+conn.once('open', function(){console.info('[MonoDB]:开户');/*global.gfs = Grid(conn.db);*/});
+conn.on('error', function(err){console.error(err);});
+conn.on('disconnected', function(){console.warn('[MonoDB]:熔断');});
+conn.on('reconnected', function(){console.info('[MonoDB]:重开');});
 
 // Setup server
 var app = express();
 app.set('env', process.env.NODE_ENV);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/user', userRouter)
+
 var server = createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
@@ -39,7 +57,8 @@ if(process.env.NODE_ENV === 'development'){
     proxy: {
       "/*": `http://localhost:${config.port}`,
       "/api/*": `http://localhost:${config.port}`,
-      "/config/*": `http://localhost:${config.port}`
+      "/config/*": `http://localhost:${config.port}`,
+      "/score/*": `http://localhost:${config.port}`
     },
     quiet: true,
     noInfo: webpackConfig.devServer.noInfo,

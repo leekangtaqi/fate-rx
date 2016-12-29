@@ -8,24 +8,5 @@ import App from './App';
 
 export default {
 	component: App,
-	path: '',
-	children: [
-		{
-			path: '/',
-			defaultRoute: true,
-			component: CommodityList,
-		},
-		{
-			path: '/about',
-			defaultRoute: true,
-			component: About,
-			authenticate: true,
-			children: [
-				{
-					path: '/nest',
-					component: Nest
-				}
-			]
-		}
-	]
+	path: ''
 }

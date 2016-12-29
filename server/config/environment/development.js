@@ -6,6 +6,9 @@ module.exports = {
     uri: 'https://apidev.91pintuan.com/api',component: '5726bf8700bbe21526c4ccbe',//测试版
     from:'client'
   },
+  mongo: {
+    uris:'mongodb://localhost/fate'
+  },
   debug: {
   	wechat:false
   }

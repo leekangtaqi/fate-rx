@@ -6,14 +6,19 @@
 
 import errors from './components/errors';
 import path from 'path';
+import controllersCreator from './controllers'
 // import serverSideRendering from './middlewares/server-side-rendering';
 
 module.exports = function(app) {
 
   // app.use(serverSideRendering);
   // Insert routes below
+  
   app.use('/config', require('./api/config'));
   app.use('/api', require('./api/api'));
+  
+
+  controllersCreator(app);
 
   app.route('/MP_verify_:mpId.txt').get(function(req, res){
     res.send(req.params.mpId);

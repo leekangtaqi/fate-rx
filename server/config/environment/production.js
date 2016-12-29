@@ -10,6 +10,9 @@ module.exports = {
     component:'5581117b5f225e4c401c9259',
     from:'client'
   },
+  mongo: {
+    uris:'mongodb://localhost/fate'
+  },
   debug:{
   	wechat:false
   }

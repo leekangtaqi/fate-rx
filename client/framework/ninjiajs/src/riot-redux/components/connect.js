@@ -137,7 +137,6 @@ export default function connect(mapStateToOpts, mapDispatchToOpts, mergeOpts, op
                 this.state = { storeState }
                 this.clearCache();
 
-
                 this.on('mount', this.componentDidMount);
                 this.on('before-unmount', this.componentWillUnmount);
                 this.on('update', this.render);
@@ -372,7 +371,7 @@ export default function connect(mapStateToOpts, mapDispatchToOpts, mergeOpts, op
         
         Connect.displayName = connectDisplayName;
         Connect.WrappedComponent = WrappedComponent;
-
+    
         return Connect;
     }
 }
